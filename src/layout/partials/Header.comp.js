@@ -4,8 +4,17 @@ import {
     Navbar,
     Nav
 } from 'react-bootstrap'
+import {useNavigate} from "react-router-dom"
+import {
+    LinkContainer
+} from "react-router-bootstrap"
 
 export const Header = () => {
+    const navigate = useNavigate()
+    const logMeOut = () => {
+        navigate("/")
+    }
+
     return (
         <Navbar
             collapseOnSelect
@@ -18,9 +27,9 @@ export const Header = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ms-auto">
-                    <Nav.Link href="/Dashboard">Dashboard</Nav.Link>
-                    <Nav.Link href="/Dashboard">Tickets</Nav.Link>
-                    <Nav.Link href="/Dashboard">Log Out</Nav.Link>
+                    <LinkContainer to="/dashboard"><Nav.Link>Dashboard</Nav.Link></LinkContainer>
+                    <LinkContainer to="/ticket-list"><Nav.Link>Tickets</Nav.Link></LinkContainer>
+                    <Nav.Link onClick={logMeOut}>Log Out</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

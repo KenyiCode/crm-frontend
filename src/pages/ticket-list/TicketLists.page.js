@@ -6,6 +6,10 @@ import {
     Button
 } from "react-bootstrap" 
 
+import {
+    Link
+} from "react-router-dom"
+
 import PropTypes from "prop-types"
 
 import { PageBreadcrumb } from "../../components/breadcrumbs/Breadcrumbs.comp"
@@ -43,7 +47,9 @@ export const TicketLists = () => {
             </Row>
             <Row>
                 <Col className="mt-4">
-                    <Button variant="info">Add New Ticket</Button>
+                    <Link to="/add-ticket">
+                     <Button variant="info">Add New Ticket</Button>
+                    </Link>
                 </Col>
                 <Col className="text-right">
                     <SearchForm 
